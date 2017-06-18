@@ -24,6 +24,11 @@
       });
       SongPlayer.currentSong = song;
     };
+
+    function stopSong(song) {
+      currentBuzzObject.stop();
+      song.playing = null;
+    };
     /**
     * @function getSongIndex
     * @desc Finds the current index of the song thats playing
@@ -82,16 +87,30 @@
   SongPlayer.previous = function() {
     var currentSongIndex = getSongIndex(SongPlayer.currentSong);
     currentSongIndex--;
+    console.log(currentSongIndex)
 
     if (currentSongIndex < 0) {
-        currentBuzzObject.stop();
-        SongPlayer.currentSong.playing = null;
+        stopSong(song);
   } else {
       var song = currentAlbum.songs[currentSongIndex];
       setSong(song);
       playSong(song);
     }
   };
+
+  SongPlayer.next = function() {
+    var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+    currentSongIndex++;
+
+    if (currentSongIndex > 4) {
+        stopSong(song);
+  } else {
+      var song = currentAlbum.songs[currentSongIndex];
+      setSong(song);
+      playSong(song);
+    }
+  };
+
 
   angular
   .module('blocJams')
