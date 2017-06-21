@@ -49,6 +49,10 @@
 
           });
         };
+
+        scope.thumbStyle = function() {
+          return {thumb: percentString()};
+        };
       }
     };
 
