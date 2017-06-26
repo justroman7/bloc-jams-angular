@@ -76,8 +76,6 @@
       currentBuzzObject.pause();
       song.playing = false;
     }
-    return SongPlayer;
-  };
 
   /**
   * @function SongPlayer.previous
@@ -87,10 +85,9 @@
   SongPlayer.previous = function() {
     var currentSongIndex = getSongIndex(SongPlayer.currentSong);
     currentSongIndex--;
-    console.log(currentSongIndex)
 
     if (currentSongIndex < 0) {
-        stopSong(song);
+      stopSong();
   } else {
       var song = currentAlbum.songs[currentSongIndex];
       setSong(song);
@@ -110,6 +107,10 @@
       playSong(song);
     }
   };
+  return SongPlayer;
+};
+
+
 
 
   angular
