@@ -60,7 +60,6 @@
           playSong(song);
         }
       }
-    };
     /**
     * @function SongPlayer.pause
     * @desc checks to see if a song is playing and if it is, paused the current song
@@ -71,7 +70,7 @@
       currentBuzzObject.pause();
       song.playing = false;
     }
-    return SongPlayer;
+
   };
 
   /**
@@ -92,6 +91,8 @@
       playSong(song);
     }
   };
+  return SongPlayer;
+};
 
   angular
   .module('blocJams')
