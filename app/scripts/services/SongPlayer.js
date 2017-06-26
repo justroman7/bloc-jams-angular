@@ -65,7 +65,6 @@
           playSong(song);
         }
       }
-    };
     /**
     * @function SongPlayer.pause
     * @desc checks to see if a song is playing and if it is, paused the current song
@@ -94,6 +93,8 @@
       playSong(song);
     }
   };
+  return SongPlayer;
+};
 
   SongPlayer.next = function() {
     var currentSongIndex = getSongIndex(SongPlayer.currentSong);
