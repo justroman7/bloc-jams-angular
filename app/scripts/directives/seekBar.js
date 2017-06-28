@@ -18,6 +18,7 @@
       link: function(scope, element, attributes) {
         scope.value = 0;
         scope.max = 100;
+
         var seekBar = $(element);
 
         var percentString = function () {
@@ -36,22 +37,20 @@
         };
 
         scope.trackThumb = function() {
-          $document.bind('mousemove.thumb', function(event){
-            var percent = calculatePercent(seekBar, event);
-            scope.$apply(function(){
-              scope.value = percent * scope.max;
+            $document.bind('mousemove.thumb', function(event) {
+                var percent = calculatePercent(seekBar, event);
+                scope.$apply(function() {
+                    scope.value = percent * scope.max;
+                });
             });
-          });
 
-          $document.bind('mouseup.thumb', function(){
-            $document.unbind('mousemove.tumb');
-            $document.unbind('mouseup.thumb');
-
-          });
+            $document.bind('mouseup.thumb', function() {
+                $document.unbind('mousemove.thumb');
+                $document.unbind('mouseup.thumb');
+            });
         };
       }
     };
-
   }
 
   angular
