@@ -44,21 +44,20 @@
           });
 
           $document.bind('mouseup.thumb', function(){
-            $document.unbind('mousemove.tumb');
+            $document.unbind('mousemove.thumb');
             $document.unbind('mouseup.thumb');
-
           });
         };
 
         scope.thumbStyle = function() {
-          return {thumb: percentString()};
-        };
+          return {left: percentString()};
+        }
+
       }
     };
+    }
 
-  }
-
-  angular
-    .module('blocJams')
-    .directive('seekBar', ['$document', seekBar]);
+    angular
+        .module('blocJams')
+        .directive('seekBar', ['$document', seekBar]);
 })();
