@@ -133,6 +133,15 @@ SongPlayer.setCurrentTime = function(time) {
     currentBuzzObject.setTime(time);
   }
 };
+
+var value = SongPlayer.value = 50;
+var max = SongPlayer.max = 100;
+
+SongPlayer.volume;
+
+SongPlayer.setVolume = function(volume) {
+  currentBuzzObject.setVolume(volume);
+};
   return SongPlayer;
 };
 
